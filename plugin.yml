@@ -1,0 +1,17 @@
+---
+name: fishingRodPlugin
+version: 1.0.0
+main: noahasu\fishingRodPlugin\Main
+api: 4.0.8
+load: POSTWORLD
+author: noahasu
+
+commands:
+  turi:
+    description: "釣りの種類を'bait(浮き)'または'lure(ルアー)'に変更します。"
+    usage: "/turi (bait|lure)"
+    permission: fishingRodPlugin.noahasu.command
+permissions:
+  fishingRodPlugin.noahasu.command:
+    default: true
+...
