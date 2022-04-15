@@ -12,7 +12,6 @@ class FishingTableFactory {
 
     private static FishingTableFactory $instance;
     private array $tables = [];
-    private array $idToString = []; //[int biomeId => string name]
 
     private function __construct() {}
 
@@ -26,36 +25,39 @@ class FishingTableFactory {
             $this -> makeTable(json_decode($json,true));
     }
 
-    public function getFishingTableFromName(string $name):?FishingTable {
-        if(isset($this -> tables[$name])) {
-            return $this -> tables[$name];
+    /** 
+     * ワールド名からテーブルを取得する。
+     * @return FishingTable|NULL
+     */
+    public function getFishingTable(string $worldName):?FishingTable {
+        if(isset($this -> tables[$worldName])) {
+            return $this -> tables[$worldName];
         }
         return isset($this -> tables['all']) ? $this -> tables['all'] : null;
     }
 
-    public function getFishingTableFromId(int $biomeId):?FishingTable {
-        if(isset($this -> idToString[$biomeId])) return $this -> getFishingTableFromName($this -> idToString[$biomeId]);
-        return isset($this -> tables['all']) ? $this -> tables['all'] : null;
-    }
-
-    public function getTableKeys():array {
-        return array_keys($this -> tables);
-    }
-
+    /** 
+     * jsonファイルから入力されたデータからテーブルクラスを作成する
+     */
     public function makeTable(array $table) {
-        $name = $table['name'];
-        $biomeId = $table['biome_id'];
+        $worldName = $table['world_name']; 
         $fishingTable = [];
-        //var_dump($table);
+
         foreach($table['times'][0] as $time => $value) {
+            //bait or lure
             foreach($value[0]['type'][0] as $fishingType => $value2) {
-                $typeChanceSum = 0;
-                // var_dump($value2[1]);
+                $typeChanceSum = 0; //魚、宝、ゴミの確率合計を保存
+
+                # fish,junk,treasure(key),確率(typeChance)
                 foreach($value2[0] as $key => $typeChance) {
-                    $typeChanceSum += $typeChance;
+                    $typeChanceSum += $typeChance; //確率を足していく
                     $fishingTable[$time][$fishingType]['typeChances'][$key] = $typeChance;
                 }
-                if($typeChanceSum !== 1000) throw new Exception('Type chance sum is not 1000(100%) Name: '.$name.'FishngType: '.$fishingType);
+
+                /** ジャンルの確率合計が100%じゃなかったときに警告を出し、鯖を終了させる */
+                if($typeChanceSum !== 1000) throw new Exception('Type chance sum is not 1000(100%) Table: '.$worldName.'FishngType: '.$fishingType);
+                
+                # jsonからアイテムを生成する。
                 foreach($value2[1] as $type => $content2) {
                     $data = [];
                     $chanceSum = 0;
@@ -71,12 +73,13 @@ class FishingTableFactory {
                         $data[$chanceSum] = ['item' => $item, 'priceAve' => $fish['price_ave']];
                         if($type == 'fish') $data[$chanceSum] = array_merge($data[$chanceSum],['sizeMin' => $fish['size_min'], 'sizeMax' => $fish['size_max'], 'big' => $fish['big_border']]);
                     }
-                    if($chanceSum != 10000) throw new Exception('Chance sum is not 10000(100%). Name:'.$name.' FishingType: '.$fishingType.' Type:'.$type);
+
+                    /** 釣れるアイテムの確率合計が100%じゃなかったとき、鯖を終了させる */
+                    if($chanceSum != 10000) throw new Exception('Chance sum is not 10000(100%). Table:'.$worldName.' FishingType: '.$fishingType.' Type:'.$type);
                     $fishingTable[$time][$fishingType][$type] = $data;
                 }
             }
         }
-        $this -> tables[$name] = new FishingTable($name, $biomeId, $fishingTable);
-        $this -> idToString[$biomeId] = $name;
+        $this -> tables[$worldName] = new FishingTable($worldName, $fishingTable); //Tableクラスを生成し、保管しておく
     }
 }

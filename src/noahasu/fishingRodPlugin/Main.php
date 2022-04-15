@@ -42,20 +42,12 @@ class Main extends PluginBase implements Listener {
     public function onEnable():void {
         $this -> getServer() -> getPluginManager() -> registerEvents($this,$this);
         $this -> saveResource('tables/fishingTable.json');
+
+        #plugin_data/.../tables/のjsonファイルを全て取得し、読み込む。
         $files = glob($this -> getDataFolder().'/tables/*.json');
         foreach($files as $path)
             FishingTableFactory::getInstance() -> register($path);
         $this -> loadFishing();
-
-        // $i = 0;
-        // while(true) {
-        //     ++$i;
-        //     $name = FishingTableFactory::getInstance() -> getFishingTableFromId(-1) -> getRandomItem('night','bait') -> getName();
-        //     if($name == 'コイ') {
-        //         var_dump('コイ釣ったよ。回数:'.$i);
-        //         break;
-        //     }
-        // }
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args):bool {
@@ -71,12 +63,12 @@ class Main extends PluginBase implements Listener {
     }
 
     private function loadFishing():void {
-        //fishing rod を登録
+        # fishing rod を登録
         $item = new FishingRod;
         ItemFactory::getInstance() -> register($item,true);
         CreativeInventory::getInstance() -> add($item);
 
-        //fishing hook(entity)を登録
+        # 浮き(entity)を登録
         EntityFactory::getInstance() -> register(
             FishingHook::class,
             function(World $world, CompoundTag $nbt):FishingHook {
@@ -84,7 +76,7 @@ class Main extends PluginBase implements Listener {
             }, ['FishingHook'], EntityLegacyIds::FISHING_HOOK
         );
 
-        //fishing hook(entity)を登録
+        # ルアー(entity)を登録
         EntityFactory::getInstance() -> register(
             FishingLureHook::class,
             function(World $world, CompoundTag $nbt):FishingLureHook {

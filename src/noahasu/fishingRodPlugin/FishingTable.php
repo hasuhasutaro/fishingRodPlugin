@@ -10,17 +10,16 @@ use mt_rand;
 
 class FishingTable {
 
+    /** @var string $name is world name. */
     private string $name;
-    private int $biomeId;
     private array $table;
-    public function __construct(string $name, int $biomeId, array $arr) {
+    public function __construct(string $name, array $arr) {
         $this -> name = $name;
-        $this -> biomeId = $biomeId;
         $this -> table = $arr;
     }
 
+    /** return world name */
     public function getName():string { return $this -> name;}
-    public function getBiomeId():int { return $this -> biomeId;}
 
     public function getRandomType(string $time ,string $fishingType, ?string $upType, int $typeUpChance = 0):?string {
         if(!isset($this -> table[$time][$fishingType])) return null;

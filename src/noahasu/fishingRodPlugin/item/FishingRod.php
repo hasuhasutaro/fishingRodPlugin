@@ -85,9 +85,9 @@ class FishingRod extends Durable {
             break;
         }
         $pos = $player -> getPosition();
-        $table = FishingTableFactory::getInstance() -> getFishingTableFromId($world -> getBiomeId($pos -> x, $pos -> y));
+        $table = FishingTableFactory::getInstance() -> getFishingTable($world -> getProvider() -> getWorldData() -> getName());
         if($table == null) {
-            $player -> sendTip('どうやらこのバイオームではなにも釣れないそうだ…');
+            $player -> sendTip('どうやらこのワールドではなにも釣れないそうだ…');
             return;
         }
         $item = $table -> getRandomItem($timeString,HookCustomData::getInstance() -> getHookStack($player));
