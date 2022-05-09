@@ -7,13 +7,15 @@ use pocketmine\player\Player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\event\server\DataPacketSendEvent;
 
 use pocketmine\entity\EntityFactory;
 use pocketmine\entity\EntityDataHelper;
 
 use pocketmine\data\bedrock\EntityLegacyIds;
-use pocketmine\network\mcpe\protocol\InventoryTransactionPacket;
-use pocketmine\network\mcpe\protocol\types\inventory\UseItemTransactionData;
+use pocketmine\network\mcpe\protocol\LevelEventPacket;
+
+use pocketmine\network\mcpe\protocol\types\LevelEvent;
 
 use pocketmine\item\ItemFactory;
 use pocketmine\inventory\CreativeInventory;
@@ -30,7 +32,7 @@ use noahasu\fishingRodPlugin\item\{
 use pocketmine\world\World;
 use pocketmine\nbt\tag\CompoundTag;
 
-use noahasu\fishingRodPlugin\FishingManager;
+use noahasu\fishingRodPlugin\{FishingManager, WeatherManager};
 use noahasu\fishingRodPlugin\FishingTableFactory;
 use noahasu\fishingRodPlugin\HookCustomData;
 use noahasu\fishingRodPlugin\entity\{
@@ -60,6 +62,29 @@ class Main extends PluginBase implements Listener {
         HookCustomData::getInstance() -> setHook($sender,$args[0]);
         $sender -> sendMessage($args[0].'に変更しました！');
         return true;
+    }
+
+    public function sendPacket(DataPacketSendEvent $event) {
+        $packets = $event -> getPackets();
+        foreach($packets as $packet) {
+            if(!$packet instanceof LevelEventPacket) continue;
+            $eventId = $packet -> eventId;
+            $wm = WeatherManager::getInstance();
+            switch($eventId) {
+                case LevelEvent::START_RAIN:
+                    $wm -> startRain();
+                break;
+                case LevelEvent::STOP_RAIN:
+                    $wm -> stopRain();
+                break;
+                case LevelEvent::START_THUNDER:
+                    $wm -> startThunder();
+                break;
+                case LevelEvent::STOP_THUNDER:
+                    $wm -> stopThunder();
+                break;
+            }
+        }
     }
 
     private function loadFishing():void {

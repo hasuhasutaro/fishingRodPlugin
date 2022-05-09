@@ -10,7 +10,7 @@ use pocketmine\item\ItemIdentifier;
 
 use pocketmine\world\sound\ThrowSound;
 
-use noahasu\fishingRodPlugin\FishingManager;
+use noahasu\fishingRodPlugin\{FishingManager, WeatherManager};
 use noahasu\fishingRodPlugin\FishingTableFactory;
 use noahasu\fishingRodPlugin\HookCustomData;
 use noahasu\fishingRodPlugin\entity\{FishingHook,FishingLureHook};
@@ -90,7 +90,7 @@ class FishingRod extends Durable {
             $player -> sendTip('どうやらこのワールドではなにも釣れないそうだ…');
             return;
         }
-        $item = $table -> getRandomItem($timeString,HookCustomData::getInstance() -> getHookStack($player));
+        $item = $table -> getRandomItem(WeatherManager::getInstance() -> getWeather(), $timeString,HookCustomData::getInstance() -> getHookStack($player));
         if($item != null && $inv -> canAddItem($item)) {
             $player -> sendMessage($item -> getName().'§rを釣り上げました！');
             $inv -> addItem($item);

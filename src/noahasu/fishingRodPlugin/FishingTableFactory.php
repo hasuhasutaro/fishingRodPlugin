@@ -43,40 +43,46 @@ class FishingTableFactory {
         $worldName = $table['world_name']; 
         $fishingTable = [];
 
-        foreach($table['times'][0] as $time => $value) {
-            //bait or lure
-            foreach($value[0]['type'][0] as $fishingType => $value2) {
-                $typeChanceSum = 0; //魚、宝、ゴミの確率合計を保存
-
-                # fish,junk,treasure(key),確率(typeChance)
-                foreach($value2[0] as $key => $typeChance) {
-                    $typeChanceSum += $typeChance; //確率を足していく
-                    $fishingTable[$time][$fishingType]['typeChances'][$key] = $typeChance;
-                }
-
-                /** ジャンルの確率合計が100%じゃなかったときに警告を出し、鯖を終了させる */
-                if($typeChanceSum !== 1000) throw new Exception('Type chance sum is not 1000(100%) Table: '.$worldName.'FishngType: '.$fishingType);
-                
-                # jsonからアイテムを生成する。
-                foreach($value2[1] as $type => $content2) {
-                    $data = [];
-                    $chanceSum = 0;
-                    foreach($content2 as $fish) {
-                        $item = ItemFactory::getInstance() -> get($fish['id'],$fish['damage']);
-                        if(isset($fish['name'])) $item -> setCustomName($fish['name']);
-                        $lore = [];
-                        if(isset($fish['rank'])) $lore[] = '§rRank: §l'.$fish['rank'].'§r';
-                        $lore[] = '---------------';
-                        if(isset($fish['lore'])) $lore = array_merge($lore, $fish['lore'],['---------------']);
-                        $item -> setLore($lore);
-                        $chanceSum += $fish['chance'];
-                        $data[$chanceSum] = ['item' => $item, 'priceAve' => $fish['price_ave']];
-                        if($type == 'fish') $data[$chanceSum] = array_merge($data[$chanceSum],['sizeMin' => $fish['size_min'], 'sizeMax' => $fish['size_max'], 'big' => $fish['big_border']]);
+        foreach($table['weather'] as $k => $v) {
+            foreach($v as $weather => $va) {
+                foreach($va[0]['times'] as $k => $val) {
+                    foreach($val as $time => $value) {
+                        //bait or lure
+                        foreach($value[0]['type'][0] as $fishingType => $value2) {
+                            $typeChanceSum = 0; //魚、宝、ゴミの確率合計を保存
+            
+                            # fish,junk,treasure(key),確率(typeChance)
+                            foreach($value2[0] as $key => $typeChance) {
+                                $typeChanceSum += $typeChance; //確率を足していく
+                                $fishingTable[$weather][$time][$fishingType]['typeChances'][$key] = $typeChance;
+                            }
+            
+                            /** ジャンルの確率合計が100%じゃなかったときに警告を出し、鯖を終了させる */
+                            if($typeChanceSum !== 1000) throw new Exception('Type chance sum is not 1000(100%) Table: '.$worldName.'FishngType: '.$fishingType);
+                            
+                            # jsonからアイテムを生成する。
+                            foreach($value2[1] as $type => $content2) {
+                                $data = [];
+                                $chanceSum = 0;
+                                foreach($content2 as $fish) {
+                                    $item = ItemFactory::getInstance() -> get($fish['id'],$fish['damage']);
+                                    if(isset($fish['name'])) $item -> setCustomName($fish['name']);
+                                    $lore = [];
+                                    if(isset($fish['rank'])) $lore[] = '§rRank: §l'.$fish['rank'].'§r';
+                                    $lore[] = '---------------';
+                                    if(isset($fish['lore'])) $lore = array_merge($lore, $fish['lore'],['---------------']);
+                                    $item -> setLore($lore);
+                                    $chanceSum += $fish['chance'];
+                                    $data[$chanceSum] = ['item' => $item, 'priceAve' => $fish['price_ave']];
+                                    if($type == 'fish') $data[$chanceSum] = array_merge($data[$chanceSum],['sizeMin' => $fish['size_min'], 'sizeMax' => $fish['size_max'], 'big' => $fish['big_border']]);
+                                }
+            
+                                /** 釣れるアイテムの確率合計が100%じゃなかったとき、鯖を終了させる */
+                                if($chanceSum != 10000) throw new Exception('Chance sum is not 10000(100%). Table:'.$worldName.' FishingType: '.$fishingType.' Type:'.$type);
+                                $fishingTable[$weather][$time][$fishingType][$type] = $data;
+                            }
+                        }
                     }
-
-                    /** 釣れるアイテムの確率合計が100%じゃなかったとき、鯖を終了させる */
-                    if($chanceSum != 10000) throw new Exception('Chance sum is not 10000(100%). Table:'.$worldName.' FishingType: '.$fishingType.' Type:'.$type);
-                    $fishingTable[$time][$fishingType][$type] = $data;
                 }
             }
         }

@@ -21,10 +21,10 @@ class FishingTable {
     /** return world name */
     public function getName():string { return $this -> name;}
 
-    public function getRandomType(string $time ,string $fishingType, ?string $upType, int $typeUpChance = 0):?string {
-        if(!isset($this -> table[$time][$fishingType])) return null;
+    public function getRandomType(string $weather, string $time ,string $fishingType, ?string $upType, int $typeUpChance = 0):?string {
+        if(!isset($this -> table[$weather][$time][$fishingType])) return null;
         $rand = mt_rand(1,1000);
-        $types = $this -> table[$time][$fishingType]['typeChances'];
+        $types = $this -> table[$weather][$time][$fishingType]['typeChances'];
         if(isset($upType) && $typeUpChance > 0 && $types[$upType]) {
             if($upType == 'fish') {
                 $baseChance = $types['fish'];
@@ -56,22 +56,36 @@ class FishingTable {
      *  @var string $fishingType = bait or lure;
      *  @var int $typeUpChance = can UP select Fish|Treasure Chance. 10% = 0.1, 100% = 1, 200% = 2.
      */
-    public function getRandomItem(string $time, string $fishingType, ?string $upType = null, int $typeUpChance = 0):?Item {
-        $time = $this -> checkTime($time);
-        $fishingType = $this -> checkFishingType($time, $fishingType);
-        if($time == null || $fishingType == null) return null;
-        $type = $this -> getRandomType($time, $fishingType, $upType, $typeUpChance);
+    public function getRandomItem(string $weather, string $time, string $fishingType, ?string $upType = null, int $typeUpChance = 0):?Item {
+        #天候チェック
+        $weather = $this -> checkWeather($weather);
+        if($weather == null) return null;
+
+        #時間チェック
+        $time = $this -> checkTime($weather, $time);
+        if($time == null) return null;
+
+        #釣りタイプチェック
+        $fishingType = $this -> checkFishingType($weather, $time, $fishingType);
+        if($fishingType == null) return null;
+
+        #ジャンル選択
+        $type = $this -> getRandomType($weather, $time, $fishingType, $upType, $typeUpChance);
         if($type == null) return null;
-        $content = $this -> table[$time][$fishingType][$type];
+
+        #アイテム生成
+        $content = $this -> table[$weather][$time][$fishingType][$type];
         $rand = mt_rand(1,10000);
         foreach($content as $chance => $content2) {
             if($chance < $rand) continue;
             $item = clone $content2['item'];
             $lore = $item -> getLore();
             $priceAve = $content2['priceAve'];
-            $price = 0;
+            $price = $priceAve;
 
-            $nbt = $item -> getNamedTag() ?? new CompoundTag;
+            $nbt = $item -> getNamedTag() ?? new CompoundTag();
+            $nbt -> setTag('fishingRodPlugin', new CompoundTag());
+
             if($type == 'fish') {
                 $min = $content2['sizeMin'];
                 $max = $content2['sizeMax'];
@@ -85,20 +99,20 @@ class FishingTable {
                     case $size == $max:
                         $price = $priceAve * 5;
                         $lore[] = '§r★ §l§4MAX SIZE FISH';
-                        $nbt -> setByte('maxSizeFish',1);
+                        $nbt -> getTag('fishingRodPlugin') -> setByte('maxSizeFish',1);
                     break;
                     case $size >= $content2['big']:
                         $price = $priceAve * ($size/$average);
                         $price *= 2;
                         $lore[] = '§r★ §l§eBIG FISH';
-                        $nbt -> setByte('bigFish',1);
+                        $nbt -> getTag('fishingRodPlugin') -> setByte('bigFish',1);
                     break;
                 }
                 $lore[] = '§rSize: '.$size * 0.1.'cm';
             }
             $price = round($price);
 
-            $nbt -> setInt('price',$price);
+            $nbt -> getTag('fishingRodPlugin') -> setInt('price',$price);
             $item -> setNamedTag($nbt);
 
             $lore[] = 'Price: §e$'.$price;
@@ -107,37 +121,56 @@ class FishingTable {
         }
     }
 
-    private function checkFishingType(string $time, string $fishingType):?string {
-        if(!isset($this -> table[$time][$fishingType])) {
+    private function checkFishingType(string $weather, string $time, string $fishingType):?string {
+        if(!isset($this -> table[$weather][$time][$fishingType])) {
             if($fishingType == 'bait') $fishingType = 'lure';
             else $fishingType = 'bait';
-            if(!isset($this -> table[$time][$fishingType])) return null;
+            if(!isset($this -> table[$weather][$time][$fishingType])) return null;
         }
         return $fishingType;
     }
+
+    private function checkWeather(string $weather):?string {
+        if(isset($this -> table[$weather])) return $weather;
+        switch($weather) {
+            case 'thunder':
+                if(isset($this -> table['rain'])) return 'rain';
+                if(isset($this -> table['clear'])) return 'clear';
+            break;
+            case 'rain':
+                if(isset($this -> table['thunder'])) return 'thunder';
+                if(isset($this -> table['clear'])) return 'clear';
+            break;
+            case 'clear':
+                if(isset($this -> table['rain'])) return 'rain';
+                if(isset($this -> table['thunder'])) return 'thunder';
+            break;
+        }
+        return null;
+    }
     
-    private function checkTime(string $time):?string {
-        if(isset($this -> table[$time])) return $time;
+    private function checkTime(string $weather, string $time):?string {
+        if(isset($this -> table[$weather][$time])) return $time;
         switch($time) {
             case 'daytime':
-                if(isset($this -> table['night'])) return 'night';
-                if(isset($this -> table['morning'])) return 'morning';
-                if(isset($this -> table['sunset'])) return 'sunset';
+                if(isset($this -> table[$weather]['night'])) return 'night';
+                if(isset($this -> table[$weather]['morning'])) return 'morning';
+                if(isset($this -> table[$weather]['sunset'])) return 'sunset';
             break;
             case 'night':
-                if(isset($this -> table['daytime'])) return 'daytime';
-                if(isset($this -> table['morning'])) return 'morning';
-                if(isset($this -> table['sunset'])) return 'sunset';
+                if(isset($this -> table[$weather]['daytime'])) return 'daytime';
+                if(isset($this -> table[$weather]['morning'])) return 'morning';
+                if(isset($this -> table[$weather]['sunset'])) return 'sunset';
             break;
             case 'morning':
-                if(isset($this -> table['daytime'])) return 'daytime';
-                if(isset($this -> table['night'])) return 'night';
-                if(isset($this -> table['sunset'])) return 'sunset';
+                if(isset($this -> table[$weather]['daytime'])) return 'daytime';
+                if(isset($this -> table[$weather]['night'])) return 'night';
+                if(isset($this -> table[$weather]['sunset'])) return 'sunset';
             break;
             case 'sunset':
-                if(isset($this -> table['daytime'])) return 'daytime';
-                if(isset($this -> table['night'])) return 'night';
-                if(isset($this -> table['morning'])) return 'morning';
+                if(isset($this -> table[$weather]['daytime'])) return 'daytime';
+                if(isset($this -> table[$weather]['night'])) return 'night';
+                if(isset($this -> table[$weather]['morning'])) return 'morning';
             break;
         }
         return null;

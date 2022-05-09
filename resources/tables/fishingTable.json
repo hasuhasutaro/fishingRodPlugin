@@ -1,471 +1,479 @@
 {
     "world_name": "all",
-    "times": [
+    "weather": [
         {
-            "daytime": [
+            "clear": [
                 {
-                    "type": [
+                    "times": [
                         {
-                            "bait": [
+                            "daytime": [
                                 {
-                                    "fish": 850,
-                                    "junk": 100,
-                                    "treasure" : 50
-                                },
-                                {
-                                    "fish": [
+                                    "type": [
                                         {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "コブナ",
-                                            "lore": ["小さなフナ。そこらへんによくいるよね。"],
-                                            "size_min": 50,
-                                            "size_max": 100,
-                                            "big_border": 95,
-                                            "price_ave": 20,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "コイ",
-                                            "lore": ["公園でよく泳いでるアイツ。","かなり大きくなるんです。"],
-                                            "size_min": 70,
-                                            "size_max": 800,
-                                            "big_border": 730,
-                                            "price_ave": 20,
-                                            "chance": 1400
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "モツゴ",
-                                            "lore": ["関東ではクチボソとも呼ばれている。"],
-                                            "size_min":50,
-                                            "size_max": 110,
-                                            "big_border": 104,
-                                            "price_ave": 20,
-                                            "chance": 900
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "オイカワ",
-                                            "lore": ["身体の模様が綺麗な淡水魚。","繁殖期だけ模様がでるんだって。"],
-                                            "size_min":80,
-                                            "size_max": 185,
-                                            "big_border": 170,
-                                            "price_ave": 20,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "ヨシノボリ",
-                                            "lore": ["ハゼの一種。","ぺたーってしててかわいい。"],
-                                            "size_min":50,
-                                            "size_max": 110,
-                                            "big_border": 104,
-                                            "price_ave": 20,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "テナガエビ",
-                                            "lore": ["名前通り手が長い。","ちょびっ、ちょびっって糸引いてきます。"],
-                                            "size_min":50,
-                                            "size_max": 90,
-                                            "big_border": 85,
-                                            "price_ave": 20,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§aUnCommon",
-                                            "name": "ヤマメ",
-                                            "lore": ["警戒心が強い。","渓流釣りといったらみたいな魚。"],
-                                            "size_min": 330,
-                                            "size_max": 550,
-                                            "big_border": 520,
-                                            "price_ave": 50,
-                                            "chance": 700
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§aUnCommon",
-                                            "name": "フナ",
-                                            "lore": ["平べったい。頭から胴にかけての丸みが特徴的"],
-                                            "size_min":110,
-                                            "size_max": 350,
-                                            "big_border": 325,
-                                            "price_ave": 50,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§bRare",
-                                            "name": "オオタナゴ",
-                                            "lore": ["二枚貝に卵を産む。"],
-                                            "size_min":100,
-                                            "size_max": 280,
-                                            "big_border": 267,
-                                            "price_ave": 150,
-                                            "chance": 700
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§bRare",
-                                            "name": "ウナギ",
-                                            "lore": ["高級食材で有名なウナギ","ぬるぬるしてて掴みづらい。"],
-                                            "size_min":50,
-                                            "size_max": 110,
-                                            "big_border": 100,
-                                            "price_ave": 200,
-                                            "chance": 600
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§5Epic",
-                                            "name": "アブラボテ",
-                                            "lore": ["名前通りボテっとしてる。","西日本に分布。"],
-                                            "size_min":40,
-                                            "size_max": 70,
-                                            "big_border": 66,
-                                            "price_ave": 500,
-                                            "chance": 600
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§6Legendary",
-                                            "name": "アオウオ",
-                                            "lore": ["コイにそっくりだけど、ヒゲがない。","すっごく大きい。"],
-                                            "size_min":900,
-                                            "size_max": 1600,
-                                            "big_border": 1500,
-                                            "price_ave": 1500,
-                                            "chance": 100
-                                        }
-                                    ],
-                                    "junk": [
-                                        {
-                                            "id": 20,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "空き缶",
-                                            "lore": ["川底に沈んでるゴミ。","ちゃんと分別して捨てましょう。"],
-                                            "price_ave": 2,
-                                            "chance": 3000
-                                        },
-                                        {
-                                            "id": 301,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "長靴",
-                                            "lore": ["汚い長靴。中に魚が住んでそう。"],
-                                            "price_ave": 2,
-                                            "chance": 2000
-                                        },
-                                        {
-                                            "id": 301,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "Tシャツ",
-                                            "lore": ["変色したTシャツ。元の柄はもう見えない。"],
-                                            "price_ave": 2,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 287,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "釣り糸",
-                                            "lore": ["絡まってる釣り糸。","釣り人なら持って帰れ！"],
-                                            "price_ave": 1,
-                                            "chance": 4000
-                                        }
-                                    ],
-                                    "treasure": [
-                                        {
-                                            "id": 3,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "lore": ["お宝だと思った？"],
-                                            "price_ave": 10,
-                                            "chance": 3250
-                                        },
-                                        {
-                                            "id": 17,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "name": "立派な流木",
-                                            "lore": ["立派な流木。コレクターに高く売れる。"],
-                                            "price_ave": 50,
-                                            "chance": 3250
-                                        },
-                                        {
-                                            "id": 258,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "lore": ["貴方が落としたのは鉄の斧ですか？"],
-                                            "price_ave": 1000,
-                                            "chance": 1500
-                                        },
-                                        {
-                                            "id": 371,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "name": "大きい金塊",
-                                            "lore": ["高く売れますぜ。"],
-                                            "price_ave": 6000,
-                                            "chance": 500
-                                        },
-                                        {
-                                            "id": 371,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "name": "小さい金塊",
-                                            "lore": ["高く売れますぜ。"],
-                                            "price_ave": 2000,
-                                            "chance": 1500
-                                        }
-                                    ]
-                                }
-                            ],
-                            "lure": [
-                                {
-                                    "fish": 850,
-                                    "junk": 100,
-                                    "treasure" : 50
-                                },
-                                {
-                                    "fish": [
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "コイ",
-                                            "lore": ["公園でよく泳いでるアイツ。","かなり大きくなるんです。"],
-                                            "size_min": 70,
-                                            "size_max": 800,
-                                            "big_border": 730,
-                                            "price_ave": 10,
-                                            "chance": 2000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "カワムツ",
-                                            "lore": ["コイの仲間。","コイよりかは小さいかな。"],
-                                            "size_min": 100,
-                                            "size_max": 310,
-                                            "big_border": 295,
-                                            "price_ave": 8,
-                                            "chance": 2000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§fCommon",
-                                            "name": "ブラックバス",
-                                            "lore": ["ルアーといったらな魚。","世界中で大人気。"],
-                                            "size_min": 200,
-                                            "size_max": 700,
-                                            "big_border": 650,
-                                            "price_ave": 8,
-                                            "chance": 2000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§aUnCommon",
-                                            "name": "ナマズ",
-                                            "lore": ["大きい口が特徴的。ビッグサイズ。"],
-                                            "size_min": 100,
-                                            "size_max": 750,
-                                            "big_border": 700,
-                                            "price_ave": 15,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§aUnCommon",
-                                            "name": "ウグイ",
-                                            "lore": ["雑食でなんでもたべちゃう。","強酸性でもいきられるらしい。"],
-                                            "size_min": 200,
-                                            "size_max": 600,
-                                            "big_border": 580,
-                                            "price_ave": 20,
-                                            "chance": 500
-                                        },
-                                        {
-                                            "id": 460,
-                                            "damage": 0,
-                                            "rank": "§aUnCommon",
-                                            "name": "ニジマス",
-                                            "lore": ["渓流釣りの代表的な魚。","刺身でも食べられるらしい。"],
-                                            "size_min": 300,
-                                            "size_max": 1200,
-                                            "big_border": 1100,
-                                            "price_ave": 30,
-                                            "chance": 500
-                                        },
-                                        {
-                                            "id": 349,
-                                            "damage": 0,
-                                            "rank": "§bRare",
-                                            "name": "ライギョ",
-                                            "lore": ["肺呼吸な魚。","なんかレアそうだよね。"],
-                                            "size_min": 200,
-                                            "size_max": 1200,
-                                            "big_border": 1100,
-                                            "price_ave": 60,
-                                            "chance": 500
-                                        },
-                                        {
-                                            "id": 460,
-                                            "damage": 0,
-                                            "rank": "§bRare",
-                                            "name": "サーモントラウト",
-                                            "lore": ["お店でよく見かけるサーモン"],
-                                            "size_min": 200,
-                                            "size_max": 1200,
-                                            "big_border": 1100,
-                                            "price_ave": 70,
-                                            "chance": 500
-                                        },
-                                        {
-                                            "id": 460,
-                                            "damage": 0,
-                                            "rank": "§5Epic",
-                                            "name": "キングサーモン",
-                                            "lore": ["サケの王様。","産卵期には身体が綺麗なピンクになる。"],
-                                            "size_min": 200,
-                                            "size_max": 1400,
-                                            "big_border": 1280,
-                                            "price_ave": 700,
-                                            "chance": 890
-                                        },
-                                        {
-                                            "id": 460,
-                                            "damage": 0,
-                                            "rank": "§6Legendary",
-                                            "name": "リトル・カーン・ゴールデントラウト",
-                                            "lore": ["リトル・カーン・リバーのみに棲息するトラウト。","一度は釣ってみたい。"],
-                                            "size_min": 150,
-                                            "size_max": 650,
-                                            "big_border": 600,
-                                            "price_ave": 1700,
-                                            "chance": 100
-                                        },
-                                        {
-                                            "id": 460,
-                                            "damage": 0,
-                                            "rank": "§eGodden",
-                                            "name": "§eカリフォルニア・ゴールデントラウト",
-                                            "lore": ["高山域に棲息するトラウト。","幻。"],
-                                            "size_min": 150,
-                                            "size_max": 650,
-                                            "big_border": 600,
-                                            "price_ave": 15000,
-                                            "chance": 10
-                                        }
-                                    ],
-                                    "junk": [
-                                        {
-                                            "id": 20,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "空き缶",
-                                            "lore": ["川底に沈んでるゴミ。","ちゃんと分別して捨てましょう。"],
-                                            "price_ave": 2,
-                                            "chance": 3000
-                                        },
-                                        {
-                                            "id": 301,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "長靴",
-                                            "lore": ["汚い長靴。中に魚が住んでそう。"],
-                                            "price_ave": 2,
-                                            "chance": 2000
-                                        },
-                                        {
-                                            "id": 301,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "Tシャツ",
-                                            "lore": ["変色したTシャツ。元の柄はもう見えない。"],
-                                            "price_ave": 2,
-                                            "chance": 1000
-                                        },
-                                        {
-                                            "id": 287,
-                                            "damage": 0,
-                                            "rank": "§8Junk",
-                                            "name": "釣り糸",
-                                            "lore": ["絡まってる釣り糸。","釣り人なら持って帰れ！"],
-                                            "price_ave": 1,
-                                            "chance": 4000
-                                        }
-                                    ],
-                                    "treasure": [
-                                        {
-                                            "id": 3,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "lore": ["お宝だと思った？"],
-                                            "price_ave": 10,
-                                            "chance": 3250
-                                        },
-                                        {
-                                            "id": 17,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "name": "立派な流木",
-                                            "lore": ["立派な流木。コレクターに高く売れる。"],
-                                            "price_ave": 50,
-                                            "chance": 3250
-                                        },
-                                        {
-                                            "id": 258,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "lore": ["貴方が落としたのは鉄の斧ですか？"],
-                                            "price_ave": 1000,
-                                            "chance": 1500
-                                        },
-                                        {
-                                            "id": 371,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "name": "大きい金塊",
-                                            "lore": ["高く売れますぜ。"],
-                                            "price_ave": 6000,
-                                            "chance": 500
-                                        },
-                                        {
-                                            "id": 371,
-                                            "damage": 0,
-                                            "rank": "§eTreasure",
-                                            "name": "小さい金塊",
-                                            "lore": ["高く売れますぜ。"],
-                                            "price_ave": 2000,
-                                            "chance": 1500
+                                            "bait": [
+                                                {
+                                                    "fish": 850,
+                                                    "junk": 100,
+                                                    "treasure" : 50
+                                                },
+                                                {
+                                                    "fish": [
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "コブナ",
+                                                            "lore": ["小さなフナ。そこらへんによくいるよね。"],
+                                                            "size_min": 50,
+                                                            "size_max": 100,
+                                                            "big_border": 95,
+                                                            "price_ave": 20,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "コイ",
+                                                            "lore": ["公園でよく泳いでるアイツ。","かなり大きくなるんです。"],
+                                                            "size_min": 70,
+                                                            "size_max": 800,
+                                                            "big_border": 730,
+                                                            "price_ave": 20,
+                                                            "chance": 1400
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "モツゴ",
+                                                            "lore": ["関東ではクチボソとも呼ばれている。"],
+                                                            "size_min":50,
+                                                            "size_max": 110,
+                                                            "big_border": 104,
+                                                            "price_ave": 20,
+                                                            "chance": 900
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "オイカワ",
+                                                            "lore": ["身体の模様が綺麗な淡水魚。","繁殖期だけ模様がでるんだって。"],
+                                                            "size_min":80,
+                                                            "size_max": 185,
+                                                            "big_border": 170,
+                                                            "price_ave": 20,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "ヨシノボリ",
+                                                            "lore": ["ハゼの一種。","ぺたーってしててかわいい。"],
+                                                            "size_min":50,
+                                                            "size_max": 110,
+                                                            "big_border": 104,
+                                                            "price_ave": 20,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "テナガエビ",
+                                                            "lore": ["名前通り手が長い。","ちょびっ、ちょびっって糸引いてきます。"],
+                                                            "size_min":50,
+                                                            "size_max": 90,
+                                                            "big_border": 85,
+                                                            "price_ave": 20,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§aUnCommon",
+                                                            "name": "ヤマメ",
+                                                            "lore": ["警戒心が強い。","渓流釣りといったらみたいな魚。"],
+                                                            "size_min": 330,
+                                                            "size_max": 550,
+                                                            "big_border": 520,
+                                                            "price_ave": 50,
+                                                            "chance": 700
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§aUnCommon",
+                                                            "name": "フナ",
+                                                            "lore": ["平べったい。頭から胴にかけての丸みが特徴的"],
+                                                            "size_min":110,
+                                                            "size_max": 350,
+                                                            "big_border": 325,
+                                                            "price_ave": 50,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§bRare",
+                                                            "name": "オオタナゴ",
+                                                            "lore": ["二枚貝に卵を産む。"],
+                                                            "size_min":100,
+                                                            "size_max": 280,
+                                                            "big_border": 267,
+                                                            "price_ave": 150,
+                                                            "chance": 700
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§bRare",
+                                                            "name": "ウナギ",
+                                                            "lore": ["高級食材で有名なウナギ","ぬるぬるしてて掴みづらい。"],
+                                                            "size_min":50,
+                                                            "size_max": 110,
+                                                            "big_border": 100,
+                                                            "price_ave": 200,
+                                                            "chance": 600
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§5Epic",
+                                                            "name": "アブラボテ",
+                                                            "lore": ["名前通りボテっとしてる。","西日本に分布。"],
+                                                            "size_min":40,
+                                                            "size_max": 70,
+                                                            "big_border": 66,
+                                                            "price_ave": 500,
+                                                            "chance": 600
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§6Legendary",
+                                                            "name": "アオウオ",
+                                                            "lore": ["コイにそっくりだけど、ヒゲがない。","すっごく大きい。"],
+                                                            "size_min":900,
+                                                            "size_max": 1600,
+                                                            "big_border": 1500,
+                                                            "price_ave": 1500,
+                                                            "chance": 100
+                                                        }
+                                                    ],
+                                                    "junk": [
+                                                        {
+                                                            "id": 20,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "空き缶",
+                                                            "lore": ["川底に沈んでるゴミ。","ちゃんと分別して捨てましょう。"],
+                                                            "price_ave": 2,
+                                                            "chance": 3000
+                                                        },
+                                                        {
+                                                            "id": 301,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "長靴",
+                                                            "lore": ["汚い長靴。中に魚が住んでそう。"],
+                                                            "price_ave": 2,
+                                                            "chance": 2000
+                                                        },
+                                                        {
+                                                            "id": 301,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "Tシャツ",
+                                                            "lore": ["変色したTシャツ。元の柄はもう見えない。"],
+                                                            "price_ave": 2,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 287,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "釣り糸",
+                                                            "lore": ["絡まってる釣り糸。","釣り人なら持って帰れ！"],
+                                                            "price_ave": 1,
+                                                            "chance": 4000
+                                                        }
+                                                    ],
+                                                    "treasure": [
+                                                        {
+                                                            "id": 3,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "lore": ["お宝だと思った？"],
+                                                            "price_ave": 10,
+                                                            "chance": 3250
+                                                        },
+                                                        {
+                                                            "id": 17,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "name": "立派な流木",
+                                                            "lore": ["立派な流木。コレクターに高く売れる。"],
+                                                            "price_ave": 50,
+                                                            "chance": 3250
+                                                        },
+                                                        {
+                                                            "id": 258,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "lore": ["貴方が落としたのは鉄の斧ですか？"],
+                                                            "price_ave": 1000,
+                                                            "chance": 1500
+                                                        },
+                                                        {
+                                                            "id": 371,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "name": "大きい金塊",
+                                                            "lore": ["高く売れますぜ。"],
+                                                            "price_ave": 6000,
+                                                            "chance": 500
+                                                        },
+                                                        {
+                                                            "id": 371,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "name": "小さい金塊",
+                                                            "lore": ["高く売れますぜ。"],
+                                                            "price_ave": 2000,
+                                                            "chance": 1500
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "lure": [
+                                                {
+                                                    "fish": 850,
+                                                    "junk": 100,
+                                                    "treasure" : 50
+                                                },
+                                                {
+                                                    "fish": [
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "コイ",
+                                                            "lore": ["公園でよく泳いでるアイツ。","かなり大きくなるんです。"],
+                                                            "size_min": 70,
+                                                            "size_max": 800,
+                                                            "big_border": 730,
+                                                            "price_ave": 10,
+                                                            "chance": 2000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "カワムツ",
+                                                            "lore": ["コイの仲間。","コイよりかは小さいかな。"],
+                                                            "size_min": 100,
+                                                            "size_max": 310,
+                                                            "big_border": 295,
+                                                            "price_ave": 8,
+                                                            "chance": 2000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§fCommon",
+                                                            "name": "ブラックバス",
+                                                            "lore": ["ルアーといったらな魚。","世界中で大人気。"],
+                                                            "size_min": 200,
+                                                            "size_max": 700,
+                                                            "big_border": 650,
+                                                            "price_ave": 8,
+                                                            "chance": 2000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§aUnCommon",
+                                                            "name": "ナマズ",
+                                                            "lore": ["大きい口が特徴的。ビッグサイズ。"],
+                                                            "size_min": 100,
+                                                            "size_max": 750,
+                                                            "big_border": 700,
+                                                            "price_ave": 15,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§aUnCommon",
+                                                            "name": "ウグイ",
+                                                            "lore": ["雑食でなんでもたべちゃう。","強酸性でもいきられるらしい。"],
+                                                            "size_min": 200,
+                                                            "size_max": 600,
+                                                            "big_border": 580,
+                                                            "price_ave": 20,
+                                                            "chance": 500
+                                                        },
+                                                        {
+                                                            "id": 460,
+                                                            "damage": 0,
+                                                            "rank": "§aUnCommon",
+                                                            "name": "ニジマス",
+                                                            "lore": ["渓流釣りの代表的な魚。","刺身でも食べられるらしい。"],
+                                                            "size_min": 300,
+                                                            "size_max": 1200,
+                                                            "big_border": 1100,
+                                                            "price_ave": 30,
+                                                            "chance": 500
+                                                        },
+                                                        {
+                                                            "id": 349,
+                                                            "damage": 0,
+                                                            "rank": "§bRare",
+                                                            "name": "ライギョ",
+                                                            "lore": ["肺呼吸な魚。","なんかレアそうだよね。"],
+                                                            "size_min": 200,
+                                                            "size_max": 1200,
+                                                            "big_border": 1100,
+                                                            "price_ave": 60,
+                                                            "chance": 500
+                                                        },
+                                                        {
+                                                            "id": 460,
+                                                            "damage": 0,
+                                                            "rank": "§bRare",
+                                                            "name": "サーモントラウト",
+                                                            "lore": ["お店でよく見かけるサーモン"],
+                                                            "size_min": 200,
+                                                            "size_max": 1200,
+                                                            "big_border": 1100,
+                                                            "price_ave": 70,
+                                                            "chance": 500
+                                                        },
+                                                        {
+                                                            "id": 460,
+                                                            "damage": 0,
+                                                            "rank": "§5Epic",
+                                                            "name": "キングサーモン",
+                                                            "lore": ["サケの王様。","産卵期には身体が綺麗なピンクになる。"],
+                                                            "size_min": 200,
+                                                            "size_max": 1400,
+                                                            "big_border": 1280,
+                                                            "price_ave": 700,
+                                                            "chance": 890
+                                                        },
+                                                        {
+                                                            "id": 460,
+                                                            "damage": 0,
+                                                            "rank": "§6Legendary",
+                                                            "name": "リトル・カーン・ゴールデントラウト",
+                                                            "lore": ["リトル・カーン・リバーのみに棲息するトラウト。","一度は釣ってみたい。"],
+                                                            "size_min": 150,
+                                                            "size_max": 650,
+                                                            "big_border": 600,
+                                                            "price_ave": 1700,
+                                                            "chance": 100
+                                                        },
+                                                        {
+                                                            "id": 460,
+                                                            "damage": 0,
+                                                            "rank": "§eGodden",
+                                                            "name": "§eカリフォルニア・ゴールデントラウト",
+                                                            "lore": ["高山域に棲息するトラウト。","幻。"],
+                                                            "size_min": 150,
+                                                            "size_max": 650,
+                                                            "big_border": 600,
+                                                            "price_ave": 15000,
+                                                            "chance": 10
+                                                        }
+                                                    ],
+                                                    "junk": [
+                                                        {
+                                                            "id": 20,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "空き缶",
+                                                            "lore": ["川底に沈んでるゴミ。","ちゃんと分別して捨てましょう。"],
+                                                            "price_ave": 2,
+                                                            "chance": 3000
+                                                        },
+                                                        {
+                                                            "id": 301,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "長靴",
+                                                            "lore": ["汚い長靴。中に魚が住んでそう。"],
+                                                            "price_ave": 2,
+                                                            "chance": 2000
+                                                        },
+                                                        {
+                                                            "id": 301,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "Tシャツ",
+                                                            "lore": ["変色したTシャツ。元の柄はもう見えない。"],
+                                                            "price_ave": 2,
+                                                            "chance": 1000
+                                                        },
+                                                        {
+                                                            "id": 287,
+                                                            "damage": 0,
+                                                            "rank": "§8Junk",
+                                                            "name": "釣り糸",
+                                                            "lore": ["絡まってる釣り糸。","釣り人なら持って帰れ！"],
+                                                            "price_ave": 1,
+                                                            "chance": 4000
+                                                        }
+                                                    ],
+                                                    "treasure": [
+                                                        {
+                                                            "id": 3,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "lore": ["お宝だと思った？"],
+                                                            "price_ave": 10,
+                                                            "chance": 3250
+                                                        },
+                                                        {
+                                                            "id": 17,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "name": "立派な流木",
+                                                            "lore": ["立派な流木。コレクターに高く売れる。"],
+                                                            "price_ave": 50,
+                                                            "chance": 3250
+                                                        },
+                                                        {
+                                                            "id": 258,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "lore": ["貴方が落としたのは鉄の斧ですか？"],
+                                                            "price_ave": 1000,
+                                                            "chance": 1500
+                                                        },
+                                                        {
+                                                            "id": 371,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "name": "大きい金塊",
+                                                            "lore": ["高く売れますぜ。"],
+                                                            "price_ave": 6000,
+                                                            "chance": 500
+                                                        },
+                                                        {
+                                                            "id": 371,
+                                                            "damage": 0,
+                                                            "rank": "§eTreasure",
+                                                            "name": "小さい金塊",
+                                                            "lore": ["高く売れますぜ。"],
+                                                            "price_ave": 2000,
+                                                            "chance": 1500
+                                                        }
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
